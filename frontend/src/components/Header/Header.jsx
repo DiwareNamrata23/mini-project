@@ -1,0 +1,59 @@
+import React, { useState } from "react";
+import styles from "./Header.module.css"; // Import the CSS Module
+import { Link } from "react-router-dom";
+
+function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
+
+  return (
+    <header className={styles.header}>
+      <div className={styles.container}>
+        {/* Logo */}
+        <div className={styles.logo}>
+          <Link to="/" className={styles.finNews} onClick={handleLinkClick}>
+            <span className="poppins">
+              Market<span style={{ color: "#FE00E6" }}> Maverick</span>
+            </span>
+          </Link>
+        </div>
+
+        {/* Menu Toggle Button for Mobile */}
+        <button className={styles.menuToggle} onClick={toggleMenu}>
+          {menuOpen ? "✖" : "☰"}
+        </button>
+
+        {/* Navigation Links */}
+        <nav className={`${styles.nav} ${menuOpen ? styles.active : ""}`}>
+          <Link to="/blogs" onClick={handleLinkClick}>
+           My Notes
+          </Link>
+          <Link to="/myfeed" onClick={handleLinkClick}>
+            My Learnings
+          </Link>
+          <Link to="" onClick={handleLinkClick}>
+            News
+          </Link>
+          {/* <Link to="" onClick={handleLinkClick}>
+            Schemes
+          </Link>
+          <Link to="/newsletter" onClick={handleLinkClick}>
+            Newsletter
+          </Link> */}
+          <Link to="/login" onClick={handleLinkClick}>
+            Sign In / Sign Up
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
