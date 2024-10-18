@@ -16,40 +16,37 @@ import BackToTop from './components/Back-to-top/BackToTop';
 import CreateBlog from './components/Blogs/CreateBlog';
 import useOnline from './components/Offline/useOnline';
 import Offline from './components/Offline/Offline';
-import News from './components/News/News'; // Updated import path
-import Prediction from './components/Prediction/Prediction';
+import News from './components/News/News'; // Ensure this import path is correct
 
 function App() {
-  const isOnline = useOnline();
-  return (
-    <HelmetProvider>
-      <Router>
-        {
-          isOnline ? (
-            <>
-              <Header />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/myfeed" element={<MyFeed />} />
-                <Route path="/blog/:key" element={<BlogPageTemplate />} />
-                <Route path="/blogs" element={<BlogSection />} />
-                <Route path="/newsletter" element={<Newsletter />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/create-blog" element={<CreateBlog />} />
-                <Route path="/news" element={<News />} />
-                <Route path="/prediction" element={<Prediction/>}/>
-              </Routes>
-              <Footer />
-            </>
-          ) : (<Offline />)
-        }
-        <BackToTop />
-      </Router>
-    </HelmetProvider>
-  );
+    const isOnline = useOnline();
+
+    return (
+        <HelmetProvider>
+            <Router>
+                {isOnline ? (
+                    <>
+                        <Header />
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/myfeed" element={<MyFeed />} />
+                            <Route path="/blog/:key" element={<BlogPageTemplate />} />
+                            <Route path="/blogs" element={<BlogSection />} />
+                            <Route path="/newsletter" element={<Newsletter />} />
+                            <Route path="/signup" element={<Signup />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/create-blog" element={<CreateBlog />} />
+                            <Route path="/news" element={<News />} /> {/* News route */}
+                        </Routes>
+                        <Footer />
+                    </>
+                ) : (<Offline />)}
+                <BackToTop />
+            </Router>
+        </HelmetProvider>
+    );
 }
 
 export default App;

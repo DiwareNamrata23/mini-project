@@ -38,7 +38,7 @@ function Header() {
           <Link to="/myfeed" onClick={handleLinkClick}>
             My Learnings
           </Link>
-          <Link to="" onClick={handleLinkClick}>
+          <Link to="/news" onClick={handleLinkClick}>
             News
           </Link>
           {/* <Link to="" onClick={handleLinkClick}>
