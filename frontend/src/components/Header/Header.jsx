@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css"; // Import the CSS Module
 import { Link } from "react-router-dom";
+import { UserButton, useUser } from "@clerk/clerk-react";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +14,7 @@ function Header() {
     setMenuOpen(false);
   };
 
+  const { isSignedIn } = useUser();
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -33,7 +35,7 @@ function Header() {
         {/* Navigation Links */}
         <nav className={`${styles.nav} ${menuOpen ? styles.active : ""}`}>
           <Link to="/blogs" onClick={handleLinkClick}>
-           My Notes
+            My Notes
           </Link>
           <Link to="/myfeed" onClick={handleLinkClick}>
             My Learnings
@@ -48,7 +50,7 @@ function Header() {
             Newsletter
           </Link> */}
           <Link to="/login" onClick={handleLinkClick}>
-            Sign In / Sign Up
+            {isSignedIn ? <UserButton></UserButton> : "Login"}
           </Link>
         </nav>
       </div>
