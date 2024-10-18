@@ -1,43 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
-function News() {
-  const [headlines, setHeadlines] = useState([]);
-  const [loading, setLoading] = useState("true");
+const News = () => {
+    const [news, setNews] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchHeadlines = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/scrape-headlines');
-        setHeadlines(response.data);
-      } catch (error) {
-        console.error("Error fetching headlines: ", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    useEffect(() => {
+        const fetchNews = async () => {
+            try {
+                const response = await fetch('http://localhost:5001/news');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log("Fetched data:", data); // Log the fetched data
+                setNews(data);
+            } catch (error) {
+                console.error("Error fetching news:", error);
+                setError(error.message); // Capture the error message
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    fetchHeadlines();
-  }, []);
+        fetchNews();
+    }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+    if (loading) return <div>Loading news...</div>;
+    if (error) return <div>Error fetching news: {error}</div>;
 
-  return (
-    <div>
-      <h1>Scraped Yahoo Finance Headlines</h1>
-      <ul>
-        {headlines.map((headline, index) => (
-          <li key={index}>
-            <a href={headline.link} target="_blank" rel="noopener noreferrer">
-              {headline.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+    return (
+        <div>
+            <h1>Global News</h1>
+            {news.length === 0 ? (
+                <p>No news available.</p>
+            ) : (
+                news.map((article, index) => (
+                    <div key={index}>
+                        <h3>{article.title}</h3>
+                        <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
+                    </div>
+                ))
+            )}
+        </div>
+    );
+};
 
 export default News;

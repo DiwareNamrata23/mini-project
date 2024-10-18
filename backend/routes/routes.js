@@ -6,5 +6,8 @@ const { postBlog, getBlog, deleteAllBlogs } = require('../controllers/blogContro
 router.post('/post-blog', postBlog); // Route to post a blog
 router.get('/get-blog', getBlog); // Route to get blog(s)
 router.delete('/delete-all-blog', deleteAllBlogs); // Route to delete all blogs
+router.get('/', (req, res) => {
+    res.send("Blog route");
+});
 
 module.exports = router;

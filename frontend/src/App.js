@@ -12,7 +12,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  redirect,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import MyFeed from "./components/MyFeedSecion/MyFeed";
@@ -31,8 +30,7 @@ import News from "./components/News/News";
 import Prediction from "./components/Prediction/Prediction";
 
 // Your Clerk frontend API key
-const PUBLISHABLE_KEY =
-  "pk_test_YWRlcXVhdGUta29kaWFrLTUxLmNsZXJrLmFjY291bnRzLmRldiQ";
+const PUBLISHABLE_KEY = "pk_test_YWRlcXVhdGUta29kaWFrLTUxLmNsZXJrLmFjY291bnRzLmRldiQ";
 
 function App() {
   const isOnline = useOnline();
