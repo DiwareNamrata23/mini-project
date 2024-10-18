@@ -17,6 +17,7 @@ import CreateBlog from './components/Blogs/CreateBlog';
 import useOnline from './components/Offline/useOnline';
 import Offline from './components/Offline/Offline';
 import News from './components/News/News'; // Updated import path
+import Prediction from './components/Prediction/Prediction';
 
 function App() {
   const isOnline = useOnline();
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/create-blog" element={<CreateBlog />} />
                 <Route path="/news" element={<News />} />
+                <Route path="/prediction" element={<Prediction/>}/>
               </Routes>
               <Footer />
             </>
