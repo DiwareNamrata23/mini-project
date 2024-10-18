@@ -21,7 +21,7 @@ function Login() {
   };
 
   return (
-    <div className={styles.loginContainer}>
+    <div className={styles.loginContainer} clas>
       <h2 className={styles.heading}>Login</h2>
       <form onSubmit={handleLogin} className={styles.form}>
         <input
