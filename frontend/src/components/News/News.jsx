@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "./News.css"; // Import your CSS
 
 const News = () => {
     const [news, setNews] = useState([]);
@@ -13,11 +14,9 @@ const News = () => {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
                 const data = await response.json();
-                console.log("Fetched data:", data); // Log the fetched data
                 setNews(data);
             } catch (error) {
-                console.error("Error fetching news:", error);
-                setError(error.message); // Capture the error message
+                setError(error.message);
             } finally {
                 setLoading(false);
             }
@@ -26,21 +25,23 @@ const News = () => {
         fetchNews();
     }, []);
 
-    if (loading) return <div>Loading news...</div>;
-    if (error) return <div>Error fetching news: {error}</div>;
+    if (loading) return <div className="loading">Loading news...</div>;
+    if (error) return <div className="error">Error fetching news: {error}</div>;
 
     return (
-        <div>
-            <h1>Global News</h1>
+        <div className="news-container">
+            <h1 className='global'>Global News</h1>
             {news.length === 0 ? (
                 <p>No news available.</p>
             ) : (
-                news.map((article, index) => (
-                    <div key={index}>
-                        <h3>{article.title}</h3>
-                        <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
-                    </div>
-                ))
+                <div className="news-grid">
+                    {news.map((article, index) => (
+                        <div key={index} className='news-block'>
+                            <h3>{article.title}</h3>
+                            <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
+                        </div>
+                    ))}
+                </div>
             )}
         </div>
     );

@@ -1,40 +1,61 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./MyFeed.css"; // Add CSS for styling
 
+const feeds = [
+  {
+    id: 1,
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your video link
+    title: "Stock Market Updates",
+    content: "Stock market saw significant growth today...",
+    date: "2024-10-01",
+  },
+  {
+    id: 2,
+    videoUrl: "https://www.youtube.com/embed/ScMzIvxBSi4", // Replace with your video link
+    title: "Cryptocurrency News",
+    content: "Bitcoin reached an all-time high of $60,000...",
+    date: "2024-10-02",
+  },
+  {
+    id: 3,
+    videoUrl: "https://www.youtube.com/embed/5qap5aO4i9A", // Replace with your video link
+    title: "Economy Insights",
+    content: "Global economy is showing signs of recovery...",
+    date: "2024-10-03",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  // Add other feeds similarly with video URLs
+];
+
 const MyFeed = () => {
-  const [feedItems, setFeedItems] = useState([]);
+  const [feedItems, setFeedItems] = useState(feeds);
   const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    // Fetch video feed from the backend (Kafka consumer API)
-    fetch("/api/videos")
-      .then((res) => res.json())
-      .then((data) => setFeedItems(data))
-      .catch((err) => console.error("Error fetching video feed:", err));
-  }, []);
-
   function handleSearch(e) {
-    const value = e.target.value;
+    const value = e.target.value.toLowerCase();
     setQuery(value);
 
-    if (value.length === 0) {
-      // Reset feed items (you could also refetch from the API)
-      fetch("/api/videos")
-        .then((res) => res.json())
-        .then((data) => setFeedItems(data))
-        .catch((err) => console.error("Error fetching video feed:", err));
-    } else {
-      const filteredData = feedItems.filter((feed) =>
-        `${feed.title}`.toLowerCase().includes(value.toLowerCase())
-      );
-      setFeedItems(filteredData);
-    }
+    const filteredData = feeds.filter((feed) =>
+      `${feed.title} ${feed.content}`.toLowerCase().includes(value)
+    );
+
+    setFeedItems(filteredData);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
   }
 
   return (
     <div className="feed-container">
-      <h2 className="feed-title">Explore Our Feed</h2>
-      <form className="search-form">
+      <h2 className="feed-title">Learnings</h2>
+      {/* <form className="search-form" onSubmit={handleSubmit}>
         <div className="search-container">
           <input
             type="text"
@@ -45,11 +66,10 @@ const MyFeed = () => {
           />
           <img src={"/search.png"} alt="Search Icon" className="searchIcon" />
         </div>
-      </form>
+      </form> */}
       <div className="feed-list">
         {feedItems.map((item) => (
           <div className="feed-item" key={item.id}>
-            {/* Render YouTube video iframe */}
             <iframe
               width="560"
               height="315"
@@ -60,6 +80,7 @@ const MyFeed = () => {
               allowFullScreen
             ></iframe>
             <h3>{item.title}</h3>
+            <p>{item.content}</p>
             <span className="feed-date">{item.date}</span>
           </div>
         ))}

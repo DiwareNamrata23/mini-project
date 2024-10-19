@@ -4,7 +4,7 @@ import Herosection from "../components/Herosection/Herosection";
 import Finiance from "../components/All-latest-finiancial-updates/Finiance";
 import GovSchemes from "../components/New-Government-Schemes/GovSchemes";
 
-import DailyNews from "../components/Daily-NewsLetter/DailyNews";
+// import DailyNews from "../components/Daily-NewsLetter/DailyNews";
 // import Footer from '../components/Footer/Footer'
 
 function Home() {
@@ -14,7 +14,7 @@ function Home() {
       <Finiance />
       <GovSchemes />
    
-      <DailyNews />
+      {/* <DailyNews /> */}
     </>
   );
 }

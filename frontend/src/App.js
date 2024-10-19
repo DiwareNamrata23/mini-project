@@ -21,13 +21,13 @@ import About from "./components/Footer/About";
 import Contact from "./components/Footer/Contact";
 import BlogSection from "./components/Blogs/BlogSection";
 import BlogPageTemplate from "./components/Blogs/BlogPageTemplate";
-import Newsletter from "./components/Newsletter/Newsletter";
 import BackToTop from "./components/Back-to-top/BackToTop";
 import CreateBlog from "./components/Blogs/CreateBlog";
 import useOnline from "./components/Offline/useOnline";
 import Offline from "./components/Offline/Offline";
 import News from "./components/News/News";
 import Prediction from "./components/Prediction/Prediction";
+import Whatsapp from "./components/Whatsapp/Whatsapp"; // Import the WhatsAppSticky component
 
 // Your Clerk frontend API key
 const PUBLISHABLE_KEY = "pk_test_YWRlcXVhdGUta29kaWFrLTUxLmNsZXJrLmFjY291bnRzLmRldiQ";
@@ -47,7 +47,6 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/blogs" element={<BlogSection />} />
                 <Route path="/blog/:key" element={<BlogPageTemplate />} />
-                <Route path="/newsletter" element={<Newsletter />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/news" element={<News />} />
@@ -91,6 +90,7 @@ function App() {
                 />
               </Routes>
               <Footer />
+              <Whatsapp /> {/* WhatsApp Sticky button */}
             </>
           ) : (
             <Offline />

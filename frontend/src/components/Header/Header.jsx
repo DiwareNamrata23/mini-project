@@ -22,7 +22,7 @@ function Header() {
         <div className={styles.logo}>
           <Link to="/" className={styles.finNews} onClick={handleLinkClick}>
             <span className="poppins">
-              Market<span style={{ color: "#FE00E6" }}> Maverick</span>
+              Market<span style={{ color: "#FE00E6" }}> Maveric</span>
             </span>
           </Link>
         </div>
@@ -43,12 +43,10 @@ function Header() {
           <Link to="/news" onClick={handleLinkClick}>
             News
           </Link>
-          {/* <Link to="" onClick={handleLinkClick}>
-            Schemes
-          </Link>
-          <Link to="/newsletter" onClick={handleLinkClick}>
-            Newsletter
-          </Link> */}
+         
+          <Link to="/prediction" onClick={handleLinkClick}>
+            Prediction
+          </Link> 
           <Link to="/login" onClick={handleLinkClick}>
             {isSignedIn ? <UserButton></UserButton> : "Login"}
           </Link>

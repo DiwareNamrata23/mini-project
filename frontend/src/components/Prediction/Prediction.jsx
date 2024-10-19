@@ -1,5 +1,6 @@
 import React from "react";
 import StockChart from "./StockChart";
+import './Prediction.css';
 const Prediction = () => {
   return (
     <div>

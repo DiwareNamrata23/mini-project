@@ -52,7 +52,7 @@ function BlogSection() {
   return (
     <>
       <Helmet>
-        <title>BLOGS | FINNEWS TEAM</title>
+        <title>NOTES | MARKET MAVERICK</title>
         <meta
           name="description"
           content="Visit the official website of Blockchain RCOEM Chapter (BRC), your gateway to decentralized development and blockchain programming at RCOEM"

@@ -16,7 +16,7 @@ function Footer() {
       {/* First Section: Website Description */}
       <div className={styles.footerSection}>
         <img src={footerLogo} alt="footerLogo" />
-        <h4>FinNews</h4>
+        <h4>Market Maveric</h4>
         <p>Your trusted companion for financial guidance and investment strategies.</p>
       </div>
 
