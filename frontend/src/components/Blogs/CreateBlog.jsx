@@ -35,7 +35,7 @@ const CreateBlog = () => {
         const blogPost = { ...formData, id: uniqueId }; // Add the ID to formData
 
         try {
-            const response = await axios.post('http://localhost:5001/api/post-blog', blogPost, {
+            const response = await axios.post('https://mini-backend-40s4.onrender.com/api/post-blog', blogPost, {
                 headers: { 'Content-Type': 'application/json' }
             });
 

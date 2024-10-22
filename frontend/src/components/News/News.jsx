@@ -9,7 +9,7 @@ const News = () => {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                const response = await fetch('http://localhost:5001/news');
+                const response = await fetch('https://mini-backend-40s4.onrender.com/news');
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
