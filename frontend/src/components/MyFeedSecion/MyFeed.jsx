@@ -4,24 +4,375 @@ import "./MyFeed.css"; // Add CSS for styling
 const feeds = [
   {
     id: 1,
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your video link
+    videoUrl: "https://www.youtube.com/embed/Xn7KWR9EOGQ    ", // Replace with your video link
     title: "Stock Market Updates",
     content: "Stock market saw significant growth today...",
     date: "2024-10-01",
   },
   {
     id: 2,
-    videoUrl: "https://www.youtube.com/embed/ScMzIvxBSi4", // Replace with your video link
+    videoUrl: "https://www.youtube.com/embed/bLl_VRQ7pBs ", // Replace with your video link
     title: "Cryptocurrency News",
     content: "Bitcoin reached an all-time high of $60,000...",
     date: "2024-10-02",
   },
   {
     id: 3,
-    videoUrl: "https://www.youtube.com/embed/5qap5aO4i9A", // Replace with your video link
+    videoUrl: "https://www.youtube.com/embed/bLl_VRQ7pBs    ", // Replace with your video link
     title: "Economy Insights",
     content: "Global economy is showing signs of recovery...",
     date: "2024-10-03",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
+  },
+  {
+    id: 4,
+    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0", // Replace with your video link
+    title: "Tech Stocks Surge",
+    content: "Rise in Tech Stocks despite new launches...",
+    date: "2024-10-04",
   },
   {
     id: 4,
