@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Header.module.css"; // Import the CSS Module
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import { UserButton, useUser } from "@clerk/clerk-react";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
+  const { isSignedIn } = useUser();
+  const [hasRedirected, setHasRedirected] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -14,7 +17,14 @@ function Header() {
     setMenuOpen(false);
   };
 
-  const { isSignedIn } = useUser();
+  useEffect(() => {
+    // Check if the user has just signed in
+    if (isSignedIn && !hasRedirected) {
+      setHasRedirected(true); // Mark that we've redirected
+      navigate("/"); // Redirect to home route
+    }
+  }, [isSignedIn, hasRedirected, navigate]); // Run effect when isSignedIn changes
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -43,12 +53,11 @@ function Header() {
           <Link to="/news" onClick={handleLinkClick}>
             News
           </Link>
-         
           <Link to="/prediction" onClick={handleLinkClick}>
             Prediction
-          </Link> 
+          </Link>
           <Link to="/login" onClick={handleLinkClick}>
-            {isSignedIn ? <UserButton></UserButton> : "Login"}
+            {isSignedIn ? <UserButton /> : "Login"}
           </Link>
         </nav>
       </div>

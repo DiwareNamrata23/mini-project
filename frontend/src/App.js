@@ -50,8 +50,8 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/news" element={<News />} />
-                <Route path="/signup" element={<SignUp mode={"redirect"} />} />
-                <Route path="/login" element={<SignIn mode={"modal"} />} />
+                <Route path="/signup" element={<SignUp mode={"redirect"}  afterSignInUrl={'/'} />} />
+                <Route path="/" element={<SignIn afterSignInUrl={'/'} mode={"modal"} />} />
 
                 {/* Protected Routes */}
                 <Route

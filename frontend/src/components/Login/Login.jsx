@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styles from './Login.module.css';
-import { Link } from 'react-router-dom';
+import './Login.css';
+import { Link, useNavigate, useRoutes } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -14,22 +14,24 @@ function Login() {
   const handleLinkClick = () => {
     setMenuOpen(false);
   };
+
   const handleLogin = (e) => {
     e.preventDefault();
-    // Add your login logic here (e.g., Firebase or API call)
     console.log("Login details:", email, password);
   };
 
+  const nav=useNavigate()  
+  nav("/")
   return (
-    <div className={styles.loginContainer} clas>
-      <h2 className={styles.heading}>Login</h2>
-      <form onSubmit={handleLogin} className={styles.form}>
+    <div className="loginContainer">
+      <h2 className="heading">Login</h2>
+      <form onSubmit={handleLogin} className="form">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
-          className={styles.inputField}
+          className="inputField"
           required
         />
         <input
@@ -37,12 +39,12 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          className={styles.inputField}
+          className="inputField"
           required
         />
-        <button type="submit" className={styles.submitButton}>Login</button>
-        <p className={styles.notAMember}>
-          Not a member? <Link to="/signup" onClick={handleLinkClick} className={styles.signUpLink}>Sign Up</Link>
+        <button type="submit" className="submitButton">Login</button>
+        <p className="notAMember">
+          Not a member? <Link to="/signup" onClick={handleLinkClick} className="signUpLink">Sign Up</Link>
         </p>
       </form>
     </div>
