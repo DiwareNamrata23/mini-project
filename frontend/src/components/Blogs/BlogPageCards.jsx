@@ -123,7 +123,7 @@ const BlogPageCard = () => {
 
     const fetchData = async () => {
         try {
-            let response = await fetch('http://localhost:5001/api/get-blog')
+            let response = await fetch('https://mini-backend-40s4.onrender.com/api/get-blog')
             let data = await response.json()
             console.log('fetched data')
             console.log(data);
