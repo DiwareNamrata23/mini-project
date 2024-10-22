@@ -1,21 +1,25 @@
 .whatsapp-sticky {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    z-index: 1000;
-    background-color: #25D366;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    background-image: url('logo.jpg'); /* Path to the logo */
-    background-size: contain;
-    background-position: center;
-    /* background-repeat: no-repeat; */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .whatsapp-sticky:hover {
-    transform: scale(1.1);
-  }
-  
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+ text-decoration: none;
+}
+
+.whatsapp-sticky:hover {
+  background-color: #1ebc57;
+}
+
+.whatsapp-icon {
+  color: white;
+  font-size: 30px;
+}

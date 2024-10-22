@@ -1,13 +1,13 @@
 import React from "react";
 import "./Herosection.css";
-// import heroimg from '../../assets/hero-img.png';
+import { useNavigate } from "react-router-dom";  // Import useNavigate
 
 function Herosection() {
-  const scrollDown = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth',
-    });
+  const navigate = useNavigate();
+
+  const handleJoinCommunity = () => {
+    // WhatsApp community link
+    window.open("https://chat.whatsapp.com/IUkn9se7POz2OyHL5CJBWu", "_blank");
   };
 
   return (
@@ -21,18 +21,19 @@ function Herosection() {
             <span className="highlighted-text">Market Maveric</span>
           </h1>
           <p className="hero-description">“Where Intelligence Meets Finance”</p>
-          <button className="hero-button">WWW.MARKETMAVERIC.IN</button>
+          <button className="hero-button" onClick={handleJoinCommunity}>
+            Join Our Community Now
+          </button>
           {/* <img className="heroimg" src={heroimg} alt="" /> */}
         </div>
         <div className="hero-sec2"></div>
         {/* <div className="scroll-down cursor-pointer" onClick={scrollDown}>
-        <p>Scroll down for more</p>
-        <div className="arrow"></div>
-      </div> */}
+          <p>Scroll down for more</p>
+          <div className="arrow"></div>
+        </div> */}
       </div>
 
       {/* Move scroll-down outside of the flex container */}
-     
     </div>
   );
 }
