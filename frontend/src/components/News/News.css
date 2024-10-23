@@ -23,7 +23,7 @@
   .news-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 20px; /* Space between the grid items */
+    gap: 20px 10px; /* Space between the grid items */
     padding: 10px 0px;
     margin-bottom: 10%;
 
@@ -46,7 +46,7 @@
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     height: 100%; /* Make all news-blocks equal height */
     padding: 10px 10px;
-
+     gap: 20px 2px;
   }
   
   .news-block:hover {

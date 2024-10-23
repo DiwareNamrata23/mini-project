@@ -16,7 +16,7 @@ function Footer() {
       {/* First Section: Website Description */}
       <div className={styles.footerSection}>
         <img src={footerLogo} alt="footerLogo" />
-        <h4>Market Maveric</h4>
+        <h4>Market Maverick</h4>
         <p>Your trusted companion for financial guidance and investment strategies.</p>
       </div>
 
@@ -25,7 +25,7 @@ function Footer() {
         <h4>Explore</h4>
         <div className={styles.footerLinks}>
           <Link to="/about">About</Link>
-          <div>Fin-Buddy</div>
+          <div>Maverick-Buddy</div>
           <div>Investments</div>
           <div>Blog</div>
         </div>
@@ -56,7 +56,7 @@ function Footer() {
 
       {/* Copyright Statement */}
       <div className={styles.footerCopyright}>
-        &copy; 2024 | FinNews. All Rights Reserved.
+        &copy; 2024 | MarketMaverick. All Rights Reserved.
       </div>
       {/* FAQ Modal */}
       {isFAQOpen && <FAQModal onClose={toggleFAQ} />}

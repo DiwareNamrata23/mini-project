@@ -26,13 +26,11 @@ const News = () => {
     }, []);
 
     // Spinner component
-    const Spinner = () => {
-        return (
-            <div className="spinner">
-                <div className="loading">Loading...</div>
-            </div>
-        );
-    };
+    const Spinner = () => (
+        <div className="spinner">
+            <div className="loading">Loading...</div>
+        </div>
+    );
 
     if (loading) return <Spinner />; // Show spinner while loading
     if (error) return <div className="error">Error fetching news: {error}</div>;
@@ -66,20 +64,27 @@ const styles = `
 .global {
     font-size: 2rem;
     margin-bottom: 20px;
+    text-align: center; /* Center the title */
 }
 
 .news-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 60px 20px; /* Increased vertical and horizontal spacing */
 }
 
 .news-block {
-    background: white;
+    background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
+}
+
+.news-block:hover {
+    transform: translateY(-5px); /* Elevate on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
 .spinner {
@@ -98,6 +103,7 @@ const styles = `
 .error {
     color: red;
     text-align: center;
+    font-size: 1.2rem; /* Increase error message size */
 }
 `;
 

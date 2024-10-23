@@ -32,7 +32,7 @@ function Header() {
         <div className={styles.logo}>
           <Link to="/" className={styles.finNews} onClick={handleLinkClick}>
             <span className="poppins">
-              Market<span style={{ color: "#FE00E6" }}> Maveric</span>
+              Market<span style={{ color: "#FE00E6" }}> Maverick</span>
             </span>
           </Link>
         </div>

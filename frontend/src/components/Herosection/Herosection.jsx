@@ -18,7 +18,7 @@ function Herosection() {
             <span className="white-text1">INDIA’S FIRST</span>
             <br />
             <span className="white-text">SMART </span>
-            <span className="highlighted-text">Market Maveric</span>
+            <span className="highlighted-text">Market Maverick</span>
           </h1>
           <p className="hero-description">“Where Intelligence Meets Finance”</p>
           <button className="hero-button" onClick={handleJoinCommunity}>

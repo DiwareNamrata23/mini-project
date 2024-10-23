@@ -151,17 +151,17 @@ const BlogPageCard = () => {
         <>
             <div className="blog-page">
                 <div className="header">
-                    <h1 className="blog-page__title">Latest Blogs</h1>
+                    <h1 className="blog-page__title">Latest Notes</h1>
                     <div>
 
                         <button className="create-blog-button" onClick={() => {
                             navigate("/create-blog")
-                        }}>Create Blog</button>
+                        }}>Create Note</button>
                         {blogs.length > 0 &&
                             <button className="delete-blog-button" onClick={handleDeleteAll}>Delete All</button>}
                     </div>
                 </div>
-                {blogs.length > 0 ? <BlogList blogs={blogs} /> : <p>No blog to show...</p>}
+                {blogs.length > 0 ? <BlogList blogs={blogs} /> : <p>No Notes to show...</p>}
             </div>
         </>
     );

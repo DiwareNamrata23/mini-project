@@ -39,7 +39,7 @@ function BlogPageTemplate() {
         <div id="blog-introduction">
           <img src={bg} alt="" />
           <span>
-            <p>-Finnews Team</p>
+            <p>- Team</p>
             <p>{`Published on ${filteredData.date} · ${filteredData.readtime} read`}</p>
           </span>
         </div>

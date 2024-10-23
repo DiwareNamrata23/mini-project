@@ -75,7 +75,7 @@ function BlogSection() {
       </Helmet>
       <div id="BlogSection">
         <div id="blog-landingpage">
-          <h2>Simplify, Explore, and Connect with FIN NEWS Blog Wisdom</h2>
+          <h2>Simplify, Explore, and Connect with Market Maverick </h2>
           <img src={img} alt="" />
           <i className="fa-solid fa-angles-down"></i>
         </div>

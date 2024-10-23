@@ -55,7 +55,7 @@ const CreateBlog = () => {
         <>
             <div className='main'>
                 <div className="create-blog-container">
-                    <h1>Create a New Blog Post</h1>
+                    <h1>Create a New Note</h1>
 
                     {loading && <p>Loading...</p>} {/* Show loading message */}
                     {errors && <p className="error-message">{errors}</p>} {/* Display errors */}
