@@ -20,6 +20,7 @@ const StockChart = () => {
     const [selectedCompany, setSelectedCompany] = useState('AAPL');
     const [timeRange, setTimeRange] = useState('week');
     const [chartData, setChartData] = useState({ labels: [], datasets: [] });
+    const [predictedPrice, setPredictedPrice] = useState(null); // To store predicted price
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const companies = ['AAPL', 'BLK', 'GOOG', 'MSFT', 'UBER'];
@@ -27,6 +28,7 @@ const StockChart = () => {
     const fetchStockData = async (company) => {
         setLoading(true);
         setError('');
+        setPredictedPrice(null); // Reset predicted price before fetching new data
         const functionMap = {
             week: 'TIME_SERIES_DAILY',
             month: 'TIME_SERIES_DAILY',
@@ -36,7 +38,7 @@ const StockChart = () => {
         const timeSeriesFunction = functionMap[timeRange];
 
         try {
-            const response = await axios.get(`https://www.alphavantage.co/query?function=${timeSeriesFunction}&symbol=${company}&apikey=X5HP733MXC8WBW3N`);
+            const response = await axios.get(`https://www.alphavantage.co/query?function=${timeSeriesFunction}&symbol=${company}&apikey=VUI4PDOGGCL8WD1K`);
             const data = timeSeriesFunction === 'TIME_SERIES_MONTHLY' ? response.data["Monthly Time Series"] : response.data["Time Series (Daily)"];
 
             if (!data) {
@@ -80,37 +82,53 @@ const StockChart = () => {
             // Send data to Railway API and get prediction
             const railwayResponse = await sendToRailwayAPI(prices);
             console.log('Railway API response:', railwayResponse.data); // Log the response from Railway API
+            
+            // Check if predictions exist in the response
+            if (railwayResponse.data && railwayResponse.data.predictions) {
+                const predictedPrices = railwayResponse.data.predictions;
+                const latestPredictedPrice = predictedPrices[predictedPrices.length - 1]; // Get the most recent prediction
 
-            // Assume railwayResponse.data.predictions is an array of predicted prices
-            const predictedPrices = railwayResponse.data.predictions || [];
-            const predictionLabels = Array.from({ length: predictedPrices.length }, (_, i) => `Predicted Day ${i + 1}`);
+                // Only set predicted price if it is a number
+                if (!isNaN(latestPredictedPrice)) {
+                    setPredictedPrice(latestPredictedPrice);
+                } else {
+                    setPredictedPrice('N/A');
+                }
 
-            // Combine actual and predicted data
-            setChartData({
-                labels: timeRange === 'week' || timeRange === 'month' ? labels.reverse() : labels,
-                datasets: [
-                    {
-                        label: `${company} Closing Prices`,
-                        data: timeRange === 'week' || timeRange === 'month' ? values.reverse() : values,
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        backgroundColor: 'rgba(75, 192, 192, 0)',
-                        fill: false,
-                        pointRadius: 5,
-                        pointHoverRadius: 7,
-                    },
-                    {
-                        label: 'Predicted Prices',
-                        data: predictedPrices,
-                        borderColor: 'rgba(255, 99, 132, 1)', // Different color for predicted prices
-                        backgroundColor: 'rgba(255, 99, 132, 0)',
-                        fill: false,
-                        pointRadius: 5,
-                        pointHoverRadius: 7,
-                    },
-                ],
-            });
+                const predictionLabels = Array.from({ length: predictedPrices.length }, (_, i) => `Predicted Day ${i + 1}`);
+
+                // Combine actual and predicted data
+                setChartData({
+                    labels: timeRange === 'week' || timeRange === 'month' ? labels.reverse() : labels,
+                    datasets: [
+                        {
+                            label: `${company} Closing Prices`,
+                            data: timeRange === 'week' || timeRange === 'month' ? values.reverse() : values,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(75, 192, 192, 0)',
+                            fill: false,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                        },
+                        {
+                            label: 'Predicted Prices',
+                            data: predictedPrices,
+                            borderColor: 'rgba(255, 99, 132, 1)', // Different color for predicted prices
+                            backgroundColor: 'rgba(255, 99, 132, 0)',
+                            fill: false,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            pointBackgroundColor: 'red', // Highlight points in red
+                        },
+                    ],
+                });
+            } else {
+                setPredictedPrice('N/A'); // Set predicted price as 'N/A' if no predictions available
+            }
+
         } catch (error) {
             setError('Error fetching stock data. Please try again.');
+            console.error('Fetch stock data error:', error);
         } finally {
             setLoading(false);
         }
@@ -122,6 +140,7 @@ const StockChart = () => {
             return response; // Return the full response
         } catch (error) {
             console.error('Error sending data to Railway API:', error);
+            setError('Error sending data to prediction service.');
         }
     };
 
@@ -164,9 +183,37 @@ const StockChart = () => {
             ) : error ? (
                 <p className="text-sm text-red-500">{error}</p>
             ) : (
-                <div className="w-full md:w-3/4 lg:w-1/2 h-80">
-                    <Line data={chartData} options={{ responsive: true, scales: { y: { beginAtZero: true } } }} />
-                </div>
+                <>
+                    <div className="w-full md:w-3/4 lg:w-1/2 h-80">
+                        <Line 
+                            data={chartData} 
+                            options={{
+                                responsive: true, 
+                                scales: { y: { beginAtZero: true } },
+                                plugins: {
+                                    tooltip: {
+                                        callbacks: {
+                                            label: function(tooltipItem) {
+                                                const label = tooltipItem.dataset.label || '';
+                                                return label.includes('Predicted') 
+                                                    ? `${label}: ${tooltipItem.raw.toFixed(2)} (Predicted)` 
+                                                    : `${label}: ${tooltipItem.raw.toFixed(2)}`;
+                                            }
+                                        }
+                                    }
+                                }
+                            }} 
+                        />
+                    </div>
+
+                    {/* Predicted Price Display */}
+                    <div className="mt-6 p-4 bg-white shadow-md rounded-lg w-64 text-center">
+                        <h3 className="text-xl font-bold text-gray-800">{selectedCompany} Predicted Price</h3>
+                        <p className="text-2xl text-blue-600 mt-2">
+                            {predictedPrice !== null && !isNaN(predictedPrice) ? `$${predictedPrice.toFixed(2)}` : 'N/A'}
+                        </p>
+                    </div>
+                </>
             )}
         </div>
     );
