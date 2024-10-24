@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome C
 const Whatsapp = () => {
   return (
     <a
-      href="https://chat.whatsapp.com/IUkn9se7POz2OyHL5CJBWu" // Replace with your WhatsApp group link
+      href="https://chat.whatsapp.com/JoU90dBQWc52r50N4HrtJL" // Replace with your WhatsApp group link
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-sticky"

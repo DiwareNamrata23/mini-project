@@ -10,7 +10,7 @@ function BlogPageTemplate() {
   const filteredData = jsondata.data.find((item) => item.searchkey === key);
   const navigate = useNavigate();
   if (!filteredData) {
-    return "NO BLOG FOUND";
+    return "NO NOTES FOUND";
   }
   window.scrollTo({
     top: 0,
@@ -27,11 +27,11 @@ function BlogPageTemplate() {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`https://blockchainrcoemchapter.co.in/blog/${filteredData.searchkey}`}
+          content={`https://localhost:3000/${filteredData.searchkey}`}
         />
         <link
           rel="cononical"
-          href={`https://blockchainrcoemchapter.co.in/blog/${filteredData.searchkey}`}
+          href={`https://https://localhost:3000/notes/${filteredData.searchkey}`}
         />
       </Helmet>
       <div id="BlogTemplate">

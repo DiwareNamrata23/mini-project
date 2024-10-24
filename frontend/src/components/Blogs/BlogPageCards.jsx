@@ -100,7 +100,7 @@ const BlogCard = ({ blog }) => {
                 <p className="blog-card__description">
                     {blog.content}
                 </p>
-                <Link to={`/read-more-blog/${blog._id}`} className="blog-card__button">Read More</Link>
+                {/* <Link to={`/read-more-blog/${blog._id}`} className="blog-card__button">Read More</Link> */}
             </div>
         </div>
     );

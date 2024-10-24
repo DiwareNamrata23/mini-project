@@ -13,7 +13,7 @@ function Finiance() {
 
   return (
     <>
-      <SectionHeading title="All latest financial updates" />
+      <SectionHeading title="All latest stocks updates" />
       <div className="home-sec5">
         <div className="image-wrapper">
           <img src={prediction} alt="Prediction Bull" />
